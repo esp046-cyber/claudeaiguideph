@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude.ai Guide PH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8;
+            padding: 1%;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(206, 147, 103, 0.1);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 18px;
+            color: #ce9367;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #a8a8a8;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+            overflow-x: auto;
+            padding: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 10px 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(206, 147, 103, 0.2);
+            border-radius: 8px;
+            color: #e8e8e8;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ce9367 0%, #b87e54 100%);
+            border-color: #ce9367;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(206, 147, 103, 0.2);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            font-size: 15px;
+            color: #ce9367;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card p, .card li {
+            font-size: 13px;
+            color: #d0d0d0;
+            margin-bottom: 6px;
+        }
+
+        .card ul {
+            margin-left: 18px;
+            margin-top: 6px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .feature-box {
+            background: rgba(206, 147, 103, 0.1);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .feature-box:active {
+            transform: scale(0.98);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .feature-name {
+            font-size: 11px;
+            color: #ce9367;
+            font-weight: 600;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, rgba(206, 147, 103, 0.15) 0%, rgba(206, 147, 103, 0.05) 100%);
+            border-left: 3px solid #ce9367;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .tip-box strong {
+            color: #ce9367;
+            font-size: 12px;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(206, 147, 103, 0.2);
+            border-radius: 6px;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #a8e6a8;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #ce9367 0%, #b87e54 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .quick-action {
+            background: rgba(206, 147, 103, 0.1);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-action:active {
+            transform: scale(0.98);
+            background: rgba(206, 147, 103, 0.2);
+        }
+
+        .quick-action-title {
+            font-size: 13px;
+            color: #ce9367;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .quick-action-desc {
+            font-size: 11px;
+            color: #a8a8a8;
+        }
+
+        .prompt-template {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 6px;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 12px;
+            color: #d0d0d0;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(206, 147, 103, 0.3);
+            border: 1px solid rgba(206, 147, 103, 0.5);
+            color: #ce9367;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .copy-btn:active {
+            background: rgba(206, 147, 103, 0.5);
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 10px 0;
+            font-size: 12px;
+        }
+
+        .comparison-table td {
+            padding: 8px;
+            border-bottom: 1px solid rgba(206, 147, 103, 0.2);
+        }
+
+        .comparison-table td:first-child {
+            color: #ce9367;
+            font-weight: 600;
+        }
+
+        .price-card {
+            background: rgba(206, 147, 103, 0.1);
+            border: 2px solid rgba(206, 147, 103, 0.3);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 10px;
+        }
+
+        .price-card.featured {
+            border-color: #ce9367;
+            background: rgba(206, 147, 103, 0.15);
+        }
+
+        .price-tag {
+            font-size: 24px;
+            color: #ce9367;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 10px 0;
+            padding: 0;
+        }
+
+        .price-features li {
+            padding: 6px 0;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(206, 147, 103, 0.1);
+        }
+
+        .price-features li:before {
+            content: "✓ ";
+            color: #51cf66;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .accordion {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(206, 147, 103, 0.2);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #ce9367;
+            font-weight: 600;
+        }
+
+        .accordion-header:active {
+            background: rgba(206, 147, 103, 0.1);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+        }
+
+        .accordion-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 12px;
+        }
+
+        .accordion-content.open {
+            max-height: 500px;
+            padding: 0 12px 12px 12px;
+        }
+
+        .accordion-content p, .accordion-content ul {
+            font-size: 12px;
+            color: #d0d0d0;
+        }
+
+        .security-badge {
+            display: inline-block;
+            background: rgba(81, 207, 102, 0.2);
+            border: 1px solid rgba(81, 207, 102, 0.4);
+            color: #51cf66;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            margin: 4px 4px 4px 0;
+        }
+
+        .warning-badge {
+            display: inline-block;
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.4);
+            color: #ff6b6b;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            margin: 4px 4px 4px 0;
+        }
+
+        .holiday-item {
+            background: rgba(206, 147, 103, 0.1);
+            border-left: 3px solid #ce9367;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .holiday-date {
+            font-size: 11px;
+            color: #ce9367;
+            font-weight: 600;
+        }
+
+        .holiday-name {
+            font-size: 12px;
+            color: #d0d0d0;
+        }
+
+        .language-badge {
+            display: inline-block;
+            background: rgba(206, 147, 103, 0.2);
+            border: 1px solid rgba(206, 147, 103, 0.4);
+            color: #ce9367;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            margin: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .language-badge:active {
+            background: rgba(206, 147, 103, 0.3);
+            transform: scale(0.95);
+        }
+
+        .template-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+
+        .template-title {
+            font-size: 13px;
+            color: #ce9367;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .template-desc {
+            font-size: 11px;
+            color: #a8a8a8;
+            margin-bottom: 8px;
+        }
+
+        .creative-sample {
+            background: linear-gradient(135deg, rgba(206, 147, 103, 0.1) 0%, rgba(206, 147, 103, 0.05) 100%);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .creative-sample-title {
+            font-size: 11px;
+            color: #ce9367;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-style: normal;
+        }
+
+        .creative-sample-text {
+            font-size: 12px;
+            color: #d0d0d0;
+            line-height: 1.6;
+        }
+
+        .vs-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 10px;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .vs-side {
+            background: rgba(206, 147, 103, 0.1);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .vs-divider {
+            color: #ce9367;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .vs-title {
+            font-size: 13px;
+            color: #ce9367;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .vs-points {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .vs-points li {
+            font-size: 11px;
+            color: #d0d0d0;
+            margin: 4px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .vs-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ce9367;
+        }
+
+        .model-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(206, 147, 103, 0.2) 0%, rgba(206, 147, 103, 0.1) 100%);
+            border: 1px solid rgba(206, 147, 103, 0.4);
+            color: #ce9367;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin: 6px 6px 6px 0;
+            font-weight: 600;
+        }
+
+        .resource-link {
+            background: rgba(206, 147, 103, 0.1);
+            border: 1px solid rgba(206, 147, 103, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .resource-link:active {
+            background: rgba(206, 147, 103, 0.2);
+            transform: scale(0.98);
+        }
+
+        .resource-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-size: 13px;
+            color: #ce9367;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .resource-desc {
+            font-size: 11px;
+            color: #a8a8a8;
+        }
+
+        .save-method {
+            background: rgba(81, 207, 102, 0.1);
+            border: 1px solid rgba(81, 207, 102, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+
+        .save-method-title {
+            font-size: 13px;
+            color: #51cf66;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .save-method-steps {
+            font-size: 12px;
+            color: #d0d0d0;
+            margin-left: 6px;
+        }
+
+        .save-method-steps ol {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+
+        .save-method-steps li {
+            margin: 4px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            margin-top: 20px;
+            font-size: 11px;
+            color: #888;
+            border-top: 1px solid rgba(206, 147, 103, 0.2);
+        }
+
+        .emoji {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇵🇭 Claude.ai Guide para sa Pilipinas</h1>
+            <p class="subtitle">Your Complete 2026 User Manual</p>
+        </header>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('intro')">Intro</button>
+            <button class="tab-btn" onclick="showTab('features')">Features</button>
+            <button class="tab-btn" onclick="showTab('quick')">Quick Start</button>
+            <button class="tab-btn" onclick="showTab('usecase')">PH Cases</button>
+            <button class="tab-btn" onclick="showTab('advanced')">Advanced</button>
+            <button class="tab-btn" onclick="showTab('pricing')">Pricing</button>
+            <button class="tab-btn" onclick="showTab('privacy')">Privacy</button>
+            <button class="tab-btn" onclick="showTab('faq')">FAQ</button>
+            <button class="tab-btn" onclick="showTab('regional')">PH Regional</button>
+            <button class="tab-btn" onclick="showTab('productivity')">Productivity</button>
+            <button class="tab-btn" onclick="showTab('creative')">Creative</button>
+            <button class="tab-btn" onclick="showTab('compare')">Compare</button>
+            <button class="tab-btn" onclick="showTab('community')">Community</button>
+            <button class="tab-btn" onclick="showTab('offline')">Offline</button>
+            <button class="tab-btn" onclick="showTab('tips')">Tips</button>
+            <button class="tab-btn" onclick="showTab('tagalog')">Tagalog</button>
+        </div>
+
+        <div id="intro" class="tab-content active">
+            <div class="card">
+                <h2><span class="emoji">👋</span> Welcome to Claude</h2>
+                <p>Claude is your AI assistant powered by Anthropic. Available 24/7 to help with work, study, creativity, and everyday tasks.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🚀</span> What is Claude Sonnet 4.5?</h2>
+                <p>You're using Claude Sonnet 4.5, the smartest and most efficient model in the Claude 4 family. Perfect for:</p>
+                <ul>
+                    <li>Complex problem solving</li>
+                    <li>Coding and technical tasks</li>
+                    <li>Writing and content creation</li>
+                    <li>Data analysis and research</li>
+                    <li>Language translation</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💻</span> How to Access</h2>
+                <p>Claude is available through:</p>
+                <ul>
+                    <li><strong>Web:</strong> claude.ai (what you're using now)</li>
+                    <li><strong>Mobile:</strong> Claude app for iOS/Android</li>
+                    <li><strong>Desktop:</strong> Claude desktop app</li>
+                    <li><strong>API:</strong> For developers at console.anthropic.com</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>🌟 Pro Tip:</strong> Claude works best with clear, detailed questions. Be specific about what you need!
+            </div>
+        </div>
+
+        <div id="quick" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">⚡</span> Quick Actions</h2>
+                <p>Tap any action below to get started instantly:</p>
+            </div>
+
+            <div class="quick-action" onclick="alert('Try this prompt:\n\nTranslate this to professional Tagalog:\n[paste your English text here]')">
+                <div class="quick-action-title">🌐 Translate to Tagalog</div>
+                <div class="quick-action-desc">Convert English documents to Filipino</div>
+            </div>
+
+            <div class="quick-action" onclick="alert('Try this prompt:\n\nHelp me write a professional resume for a [your job title] position. Include:\n- Work experience\n- Skills\n- Education\n- Philippine format')">
+                <div class="quick-action-title">📄 Create Resume</div>
+                <div class="quick-action-desc">Build a professional CV/resume</div>
+            </div>
+
+            <div class="quick-action" onclick="alert('Try this prompt:\n\nCreate a monthly budget planner for ₱[your amount] salary in the Philippines. Include:\n- Rent/Bills\n- Food\n- Transportation\n- Savings\n- Emergency fund')">
+                <div class="quick-action-title">💰 Budget Planner</div>
+                <div class="quick-action-desc">Plan your monthly finances</div>
+            </div>
+
+            <div class="quick-action" onclick="alert('Try this prompt:\n\nExplain [topic] in simple Tagalog/English that a high school student can understand')">
+                <div class="quick-action-title">📚 Simplify Topic</div>
+                <div class="quick-action-desc">Break down complex concepts</div>
+            </div>
+
+            <div class="quick-action" onclick="alert('Try this prompt:\n\nWrite a professional email in Filipino/English to:\n[describe recipient]\nAbout: [topic]\nTone: [formal/casual]')">
+                <div class="quick-action-title">✉️ Draft Email</div>
+                <div class="quick-action-desc">Compose business or personal emails</div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📋</span> Prompt Templates</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'I need help with [task]. My goal is [outcome]. Please provide [specific request] in a [tone/style] way.')">Copy</button>
+                    <strong>General Template:</strong><br>
+                    "I need help with [task]. My goal is [outcome]. Please provide [specific request] in a [tone/style] way."
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Gawa ng business plan para sa [business idea] sa Pilipinas. Isama ang: budget, target market, at marketing strategy.')">Copy</button>
+                    <strong>Business Plan:</strong><br>
+                    "Gawa ng business plan para sa [business idea] sa Pilipinas. Isama ang: budget, target market, at marketing strategy."
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Summarize this article/document in 3 bullet points, focusing on [specific aspect].')">Copy</button>
+                    <strong>Document Summary:</strong><br>
+                    "Summarize this article/document in 3 bullet points, focusing on [specific aspect]."
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">✅</span> Good vs Bad Prompts</h2>
+                
+                <p style="color: #ff6b6b; font-size: 12px;"><strong>❌ Bad:</strong> "help me code"</p>
+                <p style="color: #51cf66; font-size: 12px; margin-bottom: 10px;"><strong>✅ Good:</strong> "Write a Python function to calculate jeepney fare based on distance. Base fare is ₱13 for first 4km, then ₱2 per km after."</p>
+
+                <p style="color: #ff6b6b; font-size: 12px;"><strong>❌ Bad:</strong> "translate this"</p>
+                <p style="color: #51cf66; font-size: 12px; margin-bottom: 10px;"><strong>✅ Good:</strong> "Translate this business email to formal Tagalog, maintaining professional tone: [paste email]"</p>
+
+                <p style="color: #ff6b6b; font-size: 12px;"><strong>❌ Bad:</strong> "make website"</p>
+                <p style="color: #51cf66; font-size: 12px;"><strong>✅ Good:</strong> "Create a simple HTML landing page for a Filipino online sari-sari store with: product catalog, contact form, and mobile-responsive design."</p>
+            </div>
+        </div>
+
+        <div id="usecase" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">🇵🇭</span> Para sa OFWs</h2>
+                <ul>
+                    <li><strong>Visa Applications:</strong> "Help me write a cover letter for UK skilled worker visa application"</li>
+                    <li><strong>Remittance Tracking:</strong> "Create a spreadsheet to track monthly remittances to family"</li>
+                    <li><strong>Tax Guidance:</strong> "Explain BIR tax filing requirements for OFWs in simple terms"</li>
+                    <li><strong>Contract Review:</strong> "Summarize key points in this employment contract"</li>
+                    <li><strong>Language Practice:</strong> "Help me practice conversational Arabic/Korean/Japanese"</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🏪</span> Small Business Owners</h2>
+                <ul>
+                    <li><strong>Inventory System:</strong> "Create a simple inventory tracker for sari-sari store products"</li>
+                    <li><strong>Pricing Calculator:</strong> "Calculate profit margins for retail items with 30% markup"</li>
+                    <li><strong>Social Media:</strong> "Write 5 Facebook post ideas for my online clothing business"</li>
+                    <li><strong>Customer Service:</strong> "Draft professional responses to customer complaints"</li>
+                    <li><strong>DTI Registration:</strong> "Explain step-by-step DTI business registration process"</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎓</span> Mga Estudyante</h2>
+                <ul>
+                    <li><strong>Research Papers:</strong> "Help me outline a thesis about Philippine history"</li>
+                    <li><strong>Math Problems:</strong> "Explain this calculus problem step-by-step"</li>
+                    <li><strong>UPCAT Prep:</strong> "Create practice questions for UPCAT English exam"</li>
+                    <li><strong>Essay Writing:</strong> "Review my essay about climate change in PH"</li>
+                    <li><strong>Study Schedule:</strong> "Make a study plan for final exams covering 6 subjects"</li>
+                    <li><strong>Scholarship Essays:</strong> "Help me write DOST scholarship application essay"</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🚖</span> Transport & Logistics</h2>
+                <ul>
+                    <li><strong>Route Planning:</strong> "Optimize delivery route for 10 locations in Metro Manila"</li>
+                    <li><strong>Fuel Calculation:</strong> "Calculate daily fuel costs for jeepney route"</li>
+                    <li><strong>Schedule Maker:</strong> "Create driver shift schedule for 5 people, 7 days"</li>
+                    <li><strong>Maintenance Log:</strong> "Design vehicle maintenance tracking system"</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🏡</span> Real Estate & Property</h2>
+                <ul>
+                    <li><strong>Mortgage Calculator:</strong> "Calculate monthly amortization for ₱3M house, 20 years, 7% interest"</li>
+                    <li><strong>Rental Agreement:</strong> "Create apartment lease contract following PH law"</li>
+                    <li><strong>Property Listing:</strong> "Write attractive Facebook Marketplace post for condo unit"</li>
+                    <li><strong>ROI Analysis:</strong> "Calculate rental property return on investment"</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">👨‍💼</span> Professionals</h2>
+                <ul>
+                    <li><strong>BPO Workers:</strong> "Help me improve email grammar and professional tone"</li>
+                    <li><strong>Freelancers:</strong> "Create invoice template for freelance services"</li>
+                    <li><strong>Virtual Assistants:</strong> "Draft client meeting agenda and minutes"</li>
+                    <li><strong>Teachers:</strong> "Generate quiz questions for Grade 7 Science (DepEd)"</li>
+                    <li><strong>Healthcare:</strong> "Explain medical terms to patients in simple Tagalog"</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Local Tip:</strong> Claude understands Philippine context - mention pesos (₱), local places, Filipino holidays, and local systems!
+            </div>
+        </div>
+
+        <div id="advanced" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">📊</span> Artifacts for Documents</h2>
+                <p>Claude can create interactive documents that you can edit and download:</p>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create an HTML business proposal template for [your business] with sections for executive summary, services, pricing, and contact info.')">Copy</button>
+                    <strong>Example:</strong><br>
+                    "Create an HTML business proposal template for [your business] with sections for executive summary, services, pricing, and contact info."
+                </div>
+
+                <p style="margin-top: 10px; font-size: 12px;">Claude will create a formatted document in an artifact box that you can:</p>
+                <ul>
+                    <li>View and interact with directly</li>
+                    <li>Copy and paste into Word/Google Docs</li>
+                    <li>Edit by asking Claude to modify it</li>
+                    <li>Export as PDF (screenshot or copy)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💻</span> Code & Data Analysis</h2>
+                <p>Use Code Execution for calculations and data processing:</p>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Analyze this sales data and create a visualization: [paste CSV data]. Show trends and insights.')">Copy</button>
+                    <strong>Data Analysis:</strong><br>
+                    "Analyze this sales data and create a visualization: [paste CSV data]. Show trends and insights."
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create a Python script to calculate employee payroll with: basic pay, overtime (1.25x), night differential (10%), SSS/PhilHealth/Pag-IBIG deductions.')">Copy</button>
+                    <strong>Philippine Payroll:</strong><br>
+                    "Create a Python script to calculate employee payroll with: basic pay, overtime (1.25x), night differential (10%), SSS/PhilHealth/Pag-IBIG deductions."
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📁</span> File Upload Capabilities</h2>
+                <p>Upload and analyze various file types:</p>
+                <ul>
+                    <li><strong>PDFs:</strong> Contracts, forms, reports - Claude can read and summarize</li>
+                    <li><strong>Images:</strong> Screenshots, charts, receipts - Claude can describe and extract text</li>
+                    <li><strong>Spreadsheets:</strong> Excel/CSV files - Claude can analyze data</li>
+                    <li><strong>Documents:</strong> Word files, presentations</li>
+                </ul>
+                
+                <div class="tip-box">
+                    <strong>🔒 Privacy:</strong> Don't upload sensitive personal info (passwords, SSN, bank details). Claude processes files securely but practice caution.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🔧</span> API for Developers</h2>
+                <p>Build applications powered by Claude:</p>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <td>Model</td>
+                        <td>claude-sonnet-4-5-20250929</td>
+                    </tr>
+                    <tr>
+                        <td>Access</td>
+                        <td>console.anthropic.com</td>
+                    </tr>
+                    <tr>
+                        <td>Pricing</td>
+                        <td>Pay-per-use (check current rates)</td>
+                    </tr>
+                    <tr>
+                        <td>Use Cases</td>
+                        <td>Chatbots, automation, data processing</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 10px; font-size: 12px;">Perfect for Filipino developers building:</p>
+                <ul>
+                    <li>Customer service bots for e-commerce</li>
+                    <li>Automated translation services</li>
+                    <li>Document processing systems</li>
+                    <li>Educational apps</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎨</span> Advanced Prompting Techniques</h2>
+                
+                <p><strong>Chain of Thought:</strong></p>
+                <div class="code-block">Ask Claude to "think step-by-step" for complex problems:
+"Calculate ROI for this investment. Think step-by-step and show your work."</div>
+
+                <p><strong>Role Playing:</strong></p>
+                <div class="code-block">Ask Claude to adopt a specific role:
+"Act as a Philippine tax consultant. Explain how to file ITR for freelancers."</div>
+
+                <p><strong>Few-Shot Examples:</strong></p>
+                <div class="code-block">Provide examples of what you want:
+"Write product descriptions like these examples: [example 1], [example 2]"</div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🔄</span> Iterative Refinement</h2>
+                <p>Don't settle for first response! Refine by asking:</p>
+                <ul>
+                    <li>"Make it more formal/casual"</li>
+                    <li>"Add more details about [topic]"</li>
+                    <li>"Shorten this to 2 paragraphs"</li>
+                    <li>"Translate this section to Tagalog"</li>
+                    <li>"Add examples for Filipino context"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pricing" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">💳</span> Free vs Pro Plans</h2>
+                <p>Choose the plan that fits your needs:</p>
+            </div>
+
+            <div class="price-card">
+                <h3 style="color: #ce9367; font-size: 16px; margin-bottom: 4px;">Free Plan</h3>
+                <div class="price-tag">₱0<span style="font-size: 14px; color: #a8a8a8;">/month</span></div>
+                <ul class="price-features">
+                    <li>Access to Claude Sonnet 4.5</li>
+                    <li>Limited messages per day</li>
+                    <li>Basic features enabled</li>
+                    <li>Web search available</li>
+                    <li>File uploads supported</li>
+                    <li>Artifacts creation</li>
+                </ul>
+                <p style="font-size: 11px; color: #a8a8a8; margin-top: 8px;">Perfect for students and casual users</p>
+            </div>
+
+            <div class="price-card featured">
+                <div style="background: #ce9367; color: #fff; padding: 4px 8px; border-radius: 4px; display: inline-block; font-size: 10px; margin-bottom: 8px;">RECOMMENDED</div>
+                <h3 style="color: #ce9367; font-size: 16px; margin-bottom: 4px;">Claude Pro</h3>
+                <div class="price-tag">$20<span style="font-size: 14px; color: #a8a8a8;">/month</span></div>
+                <p style="font-size: 11px; color: #a8a8a8; margin-bottom: 8px;">~₱1,100-1,200/month (varies with exchange rate)</p>
+                <ul class="price-features">
+                    <li>5x more usage than Free</li>
+                    <li>Priority access during high traffic</li>
+                    <li>Early access to new features</li>
+                    <li>Extended context window</li>
+                    <li>Access to Claude Opus (most powerful)</li>
+                    <li>All Free features included</li>
+                </ul>
+                <p style="font-size: 11px; color: #a8a8a8; margin-top: 8px;">Best for professionals, developers, and heavy users</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📊</span> Message Limits Explained</h2>
+                
+                <p><strong>What counts as a message?</strong></p>
+                <ul>
+                    <li>Each time you send a prompt to Claude = 1 message</li>
+                    <li>Follow-up questions in same conversation = new messages</li>
+                    <li>File uploads with prompts = 1 message</li>
+                    <li>Creating/editing artifacts = counts toward limit</li>
+                </ul>
+
+                <div class="tip-box" style="margin-top: 10px;">
+                    <strong>💡 Limit Tip:</strong> Free tier resets daily. If you hit the limit, wait 24 hours or upgrade to Pro for 5x more capacity!
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎯</span> Maximize Free Tier Usage</h2>
+                <ul>
+                    <li><strong>Batch Questions:</strong> Ask multiple related questions in one message</li>
+                    <li><strong>Be Specific:</strong> Clear prompts = fewer follow-ups needed</li>
+                    <li><strong>Use Memory:</strong> Enable memory so Claude remembers preferences</li>
+                    <li><strong>Save Responses:</strong> Copy important answers to avoid re-asking</li>
+                    <li><strong>Plan Your Day:</strong> Prioritize most important tasks for Claude</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💰</span> Payment Methods for Filipinos</h2>
+                <p>Ways to subscribe to Claude Pro:</p>
+                <ul>
+                    <li><strong>Credit/Debit Card:</strong> Visa, Mastercard accepted</li>
+                    <li><strong>PayPal:</strong> Link Philippine bank account or card</li>
+                    <li><strong>Virtual Cards:</strong> GCash Mastercard, Maya Card</li>
+                </ul>
+                
+                <div class="tip-box" style="margin-top: 10px;">
+                    <strong>⚠️ Note:</strong> Prices in USD. Check current exchange rate. May include foreign transaction fees from your bank.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🏢</span> Team & Enterprise</h2>
+                <p>For businesses and organizations:</p>
+                <ul>
+                    <li><strong>Team Plan:</strong> Multiple users, centralized billing</li>
+                    <li><strong>Enterprise:</strong> Custom solutions, dedicated support</li>
+                    <li><strong>API Access:</strong> Build custom applications</li>
+                </ul>
+                <p style="font-size: 12px; margin-top: 8px;">Visit claude.ai/pricing for latest information</p>
+            </div>
+        </div>
+
+        <div id="privacy" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">🔒</span> Your Data & Privacy</h2>
+                <p>Understanding how Claude handles your information:</p>
+                
+                <div style="margin-top: 12px;">
+                    <span class="security-badge">✓ Encrypted</span>
+                    <span class="security-badge">✓ Secure</span>
+                    <span class="security-badge">✓ Private</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">✅</span> What Claude Does</h2>
+                <ul>
+                    <li><strong>Encrypts conversations</strong> during transmission and storage</li>
+                    <li><strong>Processes data securely</strong> on Anthropic servers</li>
+                    <li><strong>Allows conversation deletion</strong> - you control your data</li>
+                    <li><strong>Respects privacy settings</strong> you configure</li>
+                    <li><strong>Never sells your data</strong> to third parties</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">❌</span> What NOT to Share</h2>
+                <p>Protect yourself by NOT uploading:</p>
+                
+                <div style="margin: 10px 0;">
+                    <span class="warning-badge">⚠️ Passwords</span>
+                    <span class="warning-badge">⚠️ SSS Number</span>
+                    <span class="warning-badge">⚠️ Bank Details</span>
+                    <span class="warning-badge">⚠️ Credit Cards</span>
+                    <span class="warning-badge">⚠️ Private Keys</span>
+                </div>
+
+                <ul style="margin-top: 10px;">
+                    <li>Government IDs (except for general format questions)</li>
+                    <li>Medical records with full personal details</li>
+                    <li>Company trade secrets or confidential data</li>
+                    <li>Other people's private information</li>
+                    <li>Anything you wouldn't share with a consultant</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🛡️</span> Best Practices for Security</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Working with Sensitive Documents</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Safe approach:</strong></p>
+                        <ul>
+                            <li>Remove personal identifiers before uploading</li>
+                            <li>Use placeholder names (e.g., "Employee A" instead of real names)</li>
+                            <li>Redact account numbers, IDs, addresses</li>
+                            <li>Ask general questions about format/structure only</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Business & Work Data</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>For OFWs and professionals:</strong></p>
+                        <ul>
+                            <li>Check company policy before uploading work files</li>
+                            <li>Use dummy data for examples when possible</li>
+                            <li>Don't share client confidential information</li>
+                            <li>Keep NDA and contract obligations in mind</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Personal Finance Safety</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Safe financial queries:</strong></p>
+                        <ul>
+                            <li>✅ "Calculate loan amortization for ₱500k, 5 years, 7%"</li>
+                            <li>✅ "Create budget template for ₱30k monthly income"</li>
+                            <li>❌ Don't share actual account numbers or balances</li>
+                            <li>❌ Don't upload bank statements with full details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🗑️</span> Managing Your Data</h2>
+                <p><strong>You have control:</strong></p>
+                <ul>
+                    <li><strong>Delete conversations:</strong> Click three dots (...) on any chat</li>
+                    <li><strong>Clear history:</strong> Settings → Delete all conversations</li>
+                    <li><strong>Disable memory:</strong> Turn off in Settings if you prefer</li>
+                    <li><strong>Download data:</strong> Request your data from Anthropic</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>🔐 Golden Rule:</strong> Treat Claude like a professional consultant. Share only what you'd share in a business meeting, never your passwords or private credentials.
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📄</span> Official Policies</h2>
+                <p style="font-size: 12px;">For complete details on privacy and data handling:</p>
+                <ul>
+                    <li>Privacy Policy: anthropic.com/privacy</li>
+                    <li>Terms of Service: anthropic.com/terms</li>
+                    <li>Security: anthropic.com/security</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="faq" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">❓</span> Frequently Asked Questions</h2>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🚫 Claude won't respond / keeps loading</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Common fixes:</strong></p>
+                    <ul>
+                        <li><strong>Refresh the page</strong> - Press F5 or Ctrl+R</li>
+                        <li><strong>Clear browser cache</strong> - Settings → Clear browsing data</li>
+                        <li><strong>Try incognito mode</strong> - Ctrl+Shift+N (Chrome) or Ctrl+Shift+P (Firefox)</li>
+                        <li><strong>Check internet connection</strong> - Test with other websites</li>
+                        <li><strong>Try different browser</strong> - Chrome, Firefox, Safari, Edge</li>
+                        <li><strong>Wait 5-10 minutes</strong> - May be temporary server issue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>⏱️ Hit message limit / Rate limited</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>What this means:</strong></p>
+                    <p>You've reached the daily message limit on the Free plan.</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Wait 24 hours for limit to reset (resets at midnight PT)</li>
+                        <li>Upgrade to Claude Pro for 5x more messages</li>
+                        <li>Plan your questions - batch multiple queries in one message</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>📱 Mobile app issues (Philippines)</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Common problems:</strong></p>
+                    <ul>
+                        <li><strong>App not available:</strong> Use VPN if app store restricted, or use web version at claude.ai</li>
+                        <li><strong>Slow loading:</strong> Check mobile data/WiFi connection. Philippines internet can be slow - try different network</li>
+                        <li><strong>Login issues:</strong> Verify email/password, reset if needed</li>
+                        <li><strong>Sync problems:</strong> Conversations should sync across devices when logged in</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🌐 Web search not working</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Troubleshooting steps:</strong></p>
+                    <ul>
+                        <li>Check if web search is enabled in Settings</li>
+                        <li>Try explicitly asking "search the web for..."</li>
+                        <li>Some queries don't need web search - Claude may answer from knowledge</li>
+                        <li>If truly broken, report via thumbs down button</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>📄 File upload not working</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Check these:</strong></p>
+                    <ul>
+                        <li><strong>File size:</strong> Maximum file size limits apply (usually 10-30MB)</li>
+                        <li><strong>File type:</strong> Supported - PDF, images (JPG, PNG), documents, spreadsheets</li>
+                        <li><strong>Connection:</strong> Slow PH internet may timeout on large uploads</li>
+                        <li><strong>Browser:</strong> Try different browser if persistent issues</li>
+                        <li><strong>Format:</strong> Convert unsupported formats to PDF</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>💳 Payment/Subscription issues</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Common Filipino payment problems:</strong></p>
+                    <ul>
+                        <li><strong>Card declined:</strong> Enable international transactions with your bank</li>
+                        <li><strong>GCash/Maya:</strong> Ensure virtual card is activated for online purchases</li>
+                        <li><strong>Currency:</strong> Charged in USD - check exchange rate and foreign transaction fees</li>
+                        <li><strong>Failed payment:</strong> Try PayPal as alternative method</li>
+                        <li><strong>Subscription not showing:</strong> Wait few minutes, refresh, or contact support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🗣️ Language/Tagalog issues</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Tips for best results:</strong></p>
+                    <ul>
+                        <li>Claude understands Tagalog, Taglish, and Philippine English well</li>
+                        <li>For better Tagalog responses, ask "respond in Tagalog"</li>
+                        <li>Mixed languages work fine - Claude adapts to your style</li>
+                        <li>If translation seems off, ask Claude to revise in more natural Filipino</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>⚙️ Features not available</span>
+                    <span class="accordion-icon">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Feature checklist:</strong></p>
+                    <ul>
+                        <li><strong>Artifacts:</strong> Enable in Settings → Features</li>
+                        <li><strong>Memory:</strong> Enable in Settings → Memory</li>
+                        <li><strong>Projects:</strong> May require Pro subscription</li>
+                        <li><strong>Some features:</strong> Gradually rolling out to users</li>
+                        <li>Check Settings menu to enable/disable features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🌏</span> Philippine-Specific FAQs</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Best time to use Claude in PH?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Claude works 24/7, but PH users report better speeds during off-peak hours (late night/early morning PHT) when US traffic is lower. However, response times are generally fast any time.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Can Claude help with Philippine laws/regulations?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes! Claude can explain Philippine laws, BIR requirements, labor code, etc. However, this is educational only - NOT legal advice. For legal matters, consult a licensed Philippine attorney.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Internet speed requirements?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Claude works on slow connections! Text responses need minimal bandwidth. File uploads require better connection. If using mobile data, be aware of data usage - long conversations can consume MBs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>📧 Still need help?</strong> Use the feedback button (thumbs down) on any response, or contact Anthropic support through claude.ai/support
+            </div>
+        </div>
+
+        <div id="regional" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">🗓️</span> 2026 Philippine Holidays</h2>
+                <p style="font-size: 12px; margin-bottom: 10px;">Ask Claude to create schedules around these dates:</p>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">New Year's Day</div>
+                        <div class="holiday-date">January 1</div>
+                    </div>
+                    <div style="font-size: 18px;">🎊</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">EDSA People Power Revolution</div>
+                        <div class="holiday-date">February 25</div>
+                    </div>
+                    <div style="font-size: 18px;">✊</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Araw ng Kagitingan</div>
+                        <div class="holiday-date">April 9</div>
+                    </div>
+                    <div style="font-size: 18px;">🇵🇭</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Maundy Thursday</div>
+                        <div class="holiday-date">April 17</div>
+                    </div>
+                    <div style="font-size: 18px;">✝️</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Good Friday</div>
+                        <div class="holiday-date">April 18</div>
+                    </div>
+                    <div style="font-size: 18px;">✝️</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Labor Day</div>
+                        <div class="holiday-date">May 1</div>
+                    </div>
+                    <div style="font-size: 18px;">👷</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Independence Day</div>
+                        <div class="holiday-date">June 12</div>
+                    </div>
+                    <div style="font-size: 18px;">🇵🇭</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Ninoy Aquino Day</div>
+                        <div class="holiday-date">August 21</div>
+                    </div>
+                    <div style="font-size: 18px;">👓</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">National Heroes Day</div>
+                        <div class="holiday-date">August 25 (last Mon)</div>
+                    </div>
+                    <div style="font-size: 18px;">⭐</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">All Saints' Day</div>
+                        <div class="holiday-date">November 1</div>
+                    </div>
+                    <div style="font-size: 18px;">🕯️</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Bonifacio Day</div>
+                        <div class="holiday-date">November 30</div>
+                    </div>
+                    <div style="font-size: 18px;">🗡️</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Christmas Day</div>
+                        <div class="holiday-date">December 25</div>
+                    </div>
+                    <div style="font-size: 18px;">🎄</div>
+                </div>
+                
+                <div class="holiday-item">
+                    <div>
+                        <div class="holiday-name">Rizal Day</div>
+                        <div class="holiday-date">December 30</div>
+                    </div>
+                    <div style="font-size: 18px;">📚</div>
+                </div>
+
+                <div class="prompt-template" style="margin-top: 12px;">
+                    <button class="copy-btn" onclick="copyText(this, 'Create a 2026 project timeline that avoids Philippine holidays for team meetings')">Copy</button>
+                    <strong>Try this:</strong><br>
+                    "Create a 2026 project timeline that avoids Philippine holidays for team meetings"
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🗣️</span> Philippine Languages Support</h2>
+                <p style="font-size: 12px; margin-bottom: 10px;">Claude understands major Philippine languages. Tap to see examples:</p>
+                
+                <div style="margin: 10px 0;">
+                    <span class="language-badge" onclick="alert('Example:\n\nTulungan mo ako magsulat ng liham para sa trabaho.\n\nClaude will respond in Tagalog!')">🇵🇭 Tagalog</span>
+                    <span class="language-badge" onclick="alert('Example:\n\nTabang ko makasulat ug email sa akong boss.\n\nClaude understands Cebuano!')">Bisaya/Cebuano</span>
+                    <span class="language-badge" onclick="alert('Example:\n\nTulongan mo ako ag-isurat ti letter.\n\nClaude can work with Ilocano!')">Ilocano</span>
+                    <span class="language-badge" onclick="alert('Example:\n\nHelp me write pero yung Tagalog ha.\n\nClaude handles Taglish perfectly!')">Taglish</span>
+                    <span class="language-badge" onclick="alert('Example:\n\nTabangi ako magsulat sang letter.\n\nClaude understands Hiligaynon!')">Hiligaynon</span>
+                    <span class="language-badge" onclick="alert('Example:\n\nPaki-translate to Waray: [your text]\n\nClaude can translate to Waray!')">Waray</span>
+                </div>
+
+                <div class="tip-box" style="margin-top: 12px;">
+                    <strong>💡 Tip:</strong> For best results, specify which language you want: "Sagutin mo sa Bisaya" or "Respond in formal Tagalog"
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🕐</span> Time Zone Awareness</h2>
+                <p>Claude knows you're in Philippine Time (PHT/GMT+8).</p>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Schedule a meeting with US team at 9am their time. What time is that in Manila?')">Copy</button>
+                    "Schedule a meeting with US team at 9am their time. What time is that in Manila?"
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create a study schedule for Filipino students, considering school hours 7am-5pm PHT')">Copy</button>
+                    "Create a study schedule for Filipino students, considering school hours 7am-5pm PHT"
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎓</span> DepEd Curriculum Knowledge</h2>
+                <p>Claude understands the Philippine K-12 education system:</p>
+                <ul>
+                    <li><strong>Grade levels:</strong> Kinder to Grade 12</li>
+                    <li><strong>Subjects:</strong> Filipino, Araling Panlipunan, MAPEH, ESP</li>
+                    <li><strong>Senior High:</strong> STEM, ABM, HUMSS, TVL tracks</li>
+                    <li><strong>UPCAT, ACET, DLSUCET:</strong> College entrance exam prep</li>
+                </ul>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create practice questions for Grade 9 Araling Panlipunan (Philippine History)')">Copy</button>
+                    "Create practice questions for Grade 9 Araling Panlipunan (Philippine History)"
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🏢</span> Philippine Business Context</h2>
+                <p>Claude knows about:</p>
+                <ul>
+                    <li><strong>Government agencies:</strong> BIR, DTI, SEC, SSS, PhilHealth, Pag-IBIG</li>
+                    <li><strong>Business registration:</strong> Sole proprietorship, partnership, corporation</li>
+                    <li><strong>Tax types:</strong> Income tax, VAT, withholding tax, business tax</li>
+                    <li><strong>Labor laws:</strong> 13th month pay, minimum wage, DOLE regulations</li>
+                    <li><strong>Industries:</strong> BPO, remittance, OFW, e-commerce, agriculture</li>
+                </ul>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Explain how to compute 13th month pay for employees in the Philippines')">Copy</button>
+                    "Explain how to compute 13th month pay for employees in the Philippines"
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🍽️</span> Filipino Food & Culture</h2>
+                <p>Ask Claude about Filipino cuisine and adapt recipes:</p>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Convert this Italian recipe to use Filipino ingredients available in local markets')">Copy</button>
+                    "Convert this Italian recipe to use Filipino ingredients available in local markets"
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Suggest menu for fiesta celebration with traditional Filipino dishes')">Copy</button>
+                    "Suggest menu for fiesta celebration with traditional Filipino dishes"
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🌆</span> Metro Manila & Cities</h2>
+                <p>Claude understands Philippine geography and cities:</p>
+                <ul>
+                    <li>Metro Manila cities (Makati, BGC, Ortigas, etc.)</li>
+                    <li>Major cities (Cebu, Davao, Baguio, Iloilo, CDO)</li>
+                    <li>Provincial capitals and regions</li>
+                    <li>Traffic patterns and commute planning</li>
+                </ul>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Plan a 3-day itinerary for visiting Cebu from Manila, including travel time and budget')">Copy</button>
+                    "Plan a 3-day itinerary for visiting Cebu from Manila, including travel time and budget"
+                </div>
+            </div>
+        </div>
+
+        <div id="productivity" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">📅</span> Daily Planner Templates</h2>
+                
+                <div class="template-box">
+                    <div class="template-title">Student Daily Schedule</div>
+                    <div class="template-desc">Tap copy to use this prompt:</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Create a daily schedule for a Filipino college student:\n- Classes: 7:30am-5pm MWF\n- Study time for 5 subjects\n- Meal breaks\n- Commute time (1 hour each way)\n- Part-time work: 6-9pm TTh\n- Include self-care and rest')">Copy</button>
+                        Create daily schedule for Filipino college student with classes, study time, commute, part-time work
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Work-from-Home Schedule</div>
+                    <div class="template-desc">For BPO and remote workers:</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Create a WFH schedule for night shift BPO worker:\n- Shift: 9pm-6am PHT\n- Include: breaks, meals, exercise\n- Sleep schedule\n- Errands/personal time\n- Family time considerations')">Copy</button>
+                        Create WFH schedule for night shift BPO worker with breaks, sleep, personal time
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Entrepreneur's Weekly Plan</div>
+                    <div class="template-desc">For small business owners:</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Create weekly schedule for online business owner:\n- Product sourcing: 2 days\n- Social media content: daily posts\n- Customer service: 2 hours daily\n- Accounting/bookkeeping: weekly\n- Marketing planning\n- Personal time')">Copy</button>
+                        Create weekly schedule for online business owner with sourcing, marketing, customer service
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📖</span> Study Schedule Creator</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create 2-month study plan for UPCAT exam covering:\n- Math: Algebra, Geometry, Trigonometry\n- Science: Biology, Chemistry, Physics\n- English: Reading comprehension, Grammar\n- Language Proficiency\n\nInclude: practice tests, review days, rest days')">Copy</button>
+                    <strong>UPCAT Prep Plan:</strong><br>
+                    Create 2-month study plan for UPCAT covering Math, Science, English, Language
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create finals week study schedule for 6 subjects:\n1. Calculus\n2. Physics\n3. Chemistry\n4. Filipino\n5. PE\n6. NSTP\n\nExams: Dec 15-20\nPrioritize difficult subjects, include breaks')">Copy</button>
+                    <strong>Finals Week Schedule:</strong><br>
+                    Create study schedule for 6 subjects during finals week with prioritization
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">✉️</span> Business Email Templates</h2>
+                
+                <div class="template-box">
+                    <div class="template-title">Job Application Email</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write professional job application email for [position] at [company]:\n- Reference job posting #[number]\n- Highlight my experience in [field]\n- Mention attached resume\n- Professional Filipino business tone\n- Request for interview')">Copy</button>
+                        Write job application email with Filipino professional tone
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Client Follow-up</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write polite follow-up email to client about:\n- Pending payment for Invoice #[number]\n- Amount: ₱[amount]\n- Due date was [date]\n- Maintain professional relationship\n- Suggest payment options (bank transfer, GCash)')">Copy</button>
+                        Write polite payment follow-up email with Filipino context
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Leave Request</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write leave request email for:\n- Type: Vacation/Sick/Emergency leave\n- Dates: [start] to [end]\n- Reason: [brief explanation]\n- Work handover plan\n- Contact during leave\n- Professional tone for Philippine workplace')">Copy</button>
+                        Write professional leave request email
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📊</span> Meeting Notes Formatter</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Format these meeting notes professionally:\n\n[paste your rough notes]\n\nInclude:\n- Meeting details (date, attendees)\n- Key discussion points\n- Decisions made\n- Action items with owners\n- Next steps and deadlines\n- Follow-up required')">Copy</button>
+                    <strong>Meeting Minutes Template:</strong><br>
+                    Format rough notes into professional meeting minutes with action items
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💼</span> Project Planning Tools</h2>
+                
+                <div class="template-box">
+                    <div class="template-title">Thesis Timeline</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Create thesis timeline for [topic]:\n- Start: [date], Defense: [date]\n- Chapters: 1-Introduction, 2-Review, 3-Methodology, 4-Results, 5-Conclusion\n- Include: adviser meetings, revisions, panel review\n- Consider Philippine holiday schedule\n- Buffer time for delays')">Copy</button>
+                        Create detailed thesis timeline with milestones
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Event Planning Checklist</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Create event planning checklist for [type of event]:\n- Guest count: [number]\n- Budget: ₱[amount]\n- Date: [date]\n- Venue, catering, decorations, entertainment\n- Timeline: 3 months before to day-of\n- Vendor contacts and payments\n- Filipino event considerations')">Copy</button>
+                        Create comprehensive event planning checklist
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💰</span> Budget Trackers</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create monthly budget tracker for ₱[salary] income:\n\nFixed expenses:\n- Rent/Mortgage: ₱[amount]\n- Utilities: ₱[amount]\n- Transportation: ₱[amount]\n- Food: ₱[amount]\n\nVariable:\n- Entertainment, shopping, etc.\n\nSavings goals:\n- Emergency fund: [%]\n- Investment: [%]\n\nShow remaining after all allocations')">Copy</button>
+                    <strong>Personal Budget:</strong><br>
+                    Create monthly budget tracker in Philippine pesos with savings goals
+                </div>
+
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Create debt payoff plan:\n\nDebts:\n1. Credit card: ₱[amount] at [%] interest\n2. Personal loan: ₱[amount] at [%] interest\n3. Other: ₱[amount]\n\nMonthly budget for debt: ₱[amount]\nStrategy: Avalanche or Snowball method\nTarget: debt-free by [date]')">Copy</button>
+                    <strong>Debt Payoff Plan:</strong><br>
+                    Create debt elimination strategy with timeline
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>⚡ Pro Tip:</strong> Save Claude's productivity templates by copying them to Notes app or Google Drive. Reuse whenever needed!
+            </div>
+        </div>
+
+        <div id="creative" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">✍️</span> Creative Writing in Filipino</h2>
+                <p>Claude can write stories, poems, and scripts in Tagalog or English:</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📖</span> Story Writing</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Write a short story in Tagalog about:\n- Setting: Modern-day Manila\n- Theme: [your theme]\n- Characters: [describe characters]\n- Tone: [dramatic/comedic/romantic]\n- Length: 500 words\n\nUse conversational Filipino language')">Copy</button>
+                    <strong>Filipino Short Story:</strong><br>
+                    Write short story in Tagalog with Philippine setting and characters
+                </div>
+
+                <div class="creative-sample">
+                    <div class="creative-sample-title">Example Output (excerpt):</div>
+                    <div class="creative-sample-text">
+                        "Habang sumasakay si Maria sa MRT, napansin niya ang matandang babae na tila nawawala. 'Lola, nasaan po kayo pupunta?' tanong niya. Ngumiti ang matanda, at sa pagitan ng ingay ng tren at ng ciudad, nagsimula ang isang hindi malilimutang kuwento..."
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📱</span> Social Media Content</h2>
+                
+                <div class="template-box">
+                    <div class="template-title">Facebook Post Ideas</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Create 7 Facebook post ideas for my [business type]:\n- Mix of promotional and value content\n- Engaging questions for audience\n- Filipino relatable humor\n- Include hashtags\n- Call-to-action\n- Target: Filipino millennial/Gen-Z market')">Copy</button>
+                        Create week of Facebook posts for Filipino audience
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Instagram Captions</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write Instagram caption for [describe photo/product]:\n- Target: Filipino audience\n- Tone: [casual/professional/funny]\n- Include relevant emojis\n- 3-5 relevant hashtags\n- Call-to-action\n- Max 150 characters')">Copy</button>
+                        Write engaging Instagram caption with Filipino appeal
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">TikTok Script</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write TikTok script about [topic]:\n- Length: 30-60 seconds\n- Hook in first 3 seconds\n- Filipino humor/relatable content\n- Trending sound suggestion\n- Visual direction\n- Hashtag strategy')">Copy</button>
+                        Create viral TikTok script for Filipino creators
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎬</span> Script & Dialogue Writing</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Write dialogue for short film:\n- Scene: [describe setting]\n- Characters: [2-3 characters with descriptions]\n- Language: Natural Filipino/Taglish\n- Conflict: [brief description]\n- Length: 5 minutes\n\nInclude stage directions and character emotions')">Copy</button>
+                    <strong>Film Dialogue:</strong><br>
+                    Write natural Filipino dialogue with stage directions
+                </div>
+
+                <div class="creative-sample">
+                    <div class="creative-sample-title">Example Dialogue:</div>
+                    <div class="creative-sample-text">
+                        CARLO (frustrated): "Hay nako, traffic na naman! Ang tagal nating nakatigil dito!"<br><br>
+                        MAYA (calmly scrolling phone): "Edi mag-Waze ka kasi. Sinabi ko na sa'yo, may accident sa EDSA."<br><br>
+                        CARLO: "Easy for you to say, ikaw hindi naman nagmamaneho."
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🖼️</span> Image Description & Analysis</h2>
+                <p>Upload images and Claude can:</p>
+                <ul>
+                    <li><strong>Describe photos:</strong> "Describe this family photo in detail"</li>
+                    <li><strong>Extract text:</strong> "What text is in this signage/receipt/document?"</li>
+                    <li><strong>Identify products:</strong> "What brand/model is this item?"</li>
+                    <li><strong>Analyze charts:</strong> "Explain the data in this graph"</li>
+                    <li><strong>Creative descriptions:</strong> "Write poetic caption for this sunset"</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>📸 Tip:</strong> Take clear, well-lit photos for best OCR and analysis results!
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🍳</span> Recipe Adaptation</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Adapt this [foreign recipe] to Filipino ingredients:\n\n[paste recipe]\n\nReplace with:\n- Local ingredients available in Philippine markets\n- Similar taste profile\n- Keep cooking method if possible\n- Adjust measurements to metric\n- Budget-friendly alternatives')">Copy</button>
+                    <strong>Filipinize Recipes:</strong><br>
+                    Adapt international recipes using local Philippine ingredients
+                </div>
+
+                <div class="creative-sample">
+                    <div class="creative-sample-title">Example Adaptation:</div>
+                    <div class="creative-sample-text">
+                        "Instead of ricotta cheese (expensive in PH), use kesong puti mixed with Eden cheese. Replace fresh basil with local repolyo or dahon ng sili. Use San Mig tomato sauce as base instead of imported canned tomatoes..."
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💌</span> Personal Letter Writing</h2>
+                
+                <div class="prompt-template">
+                    <button class="copy-btn" onclick="copyText(this, 'Write heartfelt letter in Filipino for:\n- Recipient: [family member/friend/teacher]\n- Occasion: [birthday/graduation/thank you]\n- Tone: Warm and sincere\n- Include: specific memories or reasons\n- Length: 1 page\n- Natural Filipino expressions of affection')">Copy</button>
+                    <strong>Personal Letters:</strong><br>
+                    Write touching letters in Filipino for special occasions
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎤</span> Speech Writing</h2>
+                
+                <div class="template-box">
+                    <div class="template-title">Wedding Speech (Tagalog)</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write wedding speech in Tagalog:\n- Role: [Best Man/Maid of Honor/Parent]\n- Bride/Groom: [names and relationship]\n- Include: funny stories, touching moments\n- Length: 3-5 minutes\n- Appropriate Filipino humor\n- End with blessing/toast')">Copy</button>
+                        Write wedding speech in Tagalog with humor and heart
+                    </div>
+                </div>
+
+                <div class="template-box">
+                    <div class="template-title">Graduation Speech</div>
+                    <div class="prompt-template">
+                        <button class="copy-btn" onclick="copyText(this, 'Write graduation speech:\n- Level: [High School/College]\n- Theme: [your theme]\n- Language: Mix Filipino and English\n- Include: inspiration, challenges, future outlook\n- Philippine context and values\n- Length: 5-7 minutes')">Copy</button>
+                        Write inspiring graduation speech for Filipino students
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎨</span> Creative Exercises</h2>
+                <p>Use Claude to improve your creativity:</p>
+                <ul>
+                    <li>"Give me 10 unique business ideas for Philippines 2026"</li>
+                    <li>"Create writing prompts based on Filipino culture"</li>
+                    <li>"Suggest plot twists for my story about [describe plot]"</li>
+                    <li>"Generate brand name ideas for [type of business]"</li>
+                    <li>"Write character backstory for [describe character]"</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>✨ Creative Tip:</strong> Ask Claude to "write in the style of [Filipino author]" or "with the humor of [Filipino comedian]" for more culturally authentic content!
+            </div>
+        </div>
+
+        <div id="compare" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">⚖️</span> Claude vs Other AI Assistants</h2>
+                <p style="font-size: 12px; margin-bottom: 10px;">How Claude compares to other popular AI tools:</p>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #ce9367; font-size: 14px; margin-bottom: 10px;">Claude vs ChatGPT</h3>
+                
+                <div class="vs-container">
+                    <div class="vs-side">
+                        <div class="vs-title">Claude Strengths</div>
+                        <ul class="vs-points">
+                            <li>Longer context window (200k+ tokens)</li>
+                            <li>More nuanced, thoughtful responses</li>
+                            <li>Better at following complex instructions</li>
+                            <li>Strong coding abilities</li>
+                            <li>Excellent document analysis</li>
+                            <li>More careful with safety</li>
+                        </ul>
+                    </div>
+                    <div class="vs-divider">VS</div>
+                    <div class="vs-side">
+                        <div class="vs-title">ChatGPT Strengths</div>
+                        <ul class="vs-points">
+                            <li>Larger user base</li>
+                            <li>More plugins/integrations</li>
+                            <li>Image generation (DALL-E)</li>
+                            <li>Voice mode widely available</li>
+                            <li>Custom GPTs marketplace</li>
+                            <li>More casual/conversational</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <strong>🎯 Best For:</strong> Claude excels at complex analysis, coding, and professional writing. ChatGPT is great for casual conversation and creative brainstorming.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #ce9367; font-size: 14px; margin-bottom: 10px;">Claude vs Google Gemini</h3>
+                
+                <div class="vs-container">
+                    <div class="vs-side">
+                        <div class="vs-title">Claude Strengths</div>
+                        <ul class="vs-points">
+                            <li>Better reasoning abilities</li>
+                            <li>More reliable outputs</li>
+                            <li>Superior code generation</li>
+                            <li>Better document handling</li>
+                            <li>More consistent quality</li>
+                        </ul>
+                    </div>
+                    <div class="vs-divider">VS</div>
+                    <div class="vs-side">
+                        <div class="vs-title">Gemini Strengths</div>
+                        <ul class="vs-points">
+                            <li>Deep Google integration</li>
+                            <li>Free tier more generous</li>
+                            <li>Gmail/Drive/Maps access</li>
+                            <li>YouTube integration</li>
+                            <li>Real-time web access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🤖</span> Claude Model Comparison</h2>
+                <p style="font-size: 12px; margin-bottom: 10px;">Different Claude models for different needs:</p>
+
+                <div class="model-badge" style="border-width: 2px;">Sonnet 4.5 (Current)</div>
+                <div class="model-badge">Opus 4.1</div>
+                <div class="model-badge">Haiku 4.5</div>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #ce9367; font-size: 14px; margin-bottom: 6px;">Claude Sonnet 4.5</h3>
+                <p style="font-size: 11px; color: #a8a8a8; margin-bottom: 8px;">⭐ Currently what you're using</p>
+                <ul>
+                    <li><strong>Best for:</strong> Everyday tasks, coding, analysis, writing</li>
+                    <li><strong>Speed:</strong> Fast responses</li>
+                    <li><strong>Cost:</strong> Efficient, included in Free and Pro</li>
+                    <li><strong>Quality:</strong> Excellent balance of intelligence and speed</li>
+                    <li><strong>Use when:</strong> General purpose, most common tasks</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #ce9367; font-size: 14px; margin-bottom: 6px;">Claude Opus 4.1</h3>
+                <p style="font-size: 11px; color: #a8a8a8; margin-bottom: 8px;">🧠 Most Powerful</p>
+                <ul>
+                    <li><strong>Best for:</strong> Complex reasoning, research, difficult problems</li>
+                    <li><strong>Speed:</strong> Slower but more thorough</li>
+                    <li><strong>Cost:</strong> Pro plan only, limited usage</li>
+                    <li><strong>Quality:</strong> Highest reasoning ability</li>
+                    <li><strong>Use when:</strong> Tough coding, deep analysis, critical decisions</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #ce9367; font-size: 14px; margin-bottom: 6px;">Claude Haiku 4.5</h3>
+                <p style="font-size: 11px; color: #a8a8a8; margin-bottom: 8px;">⚡ Fastest</p>
+                <ul>
+                    <li><strong>Best for:</strong> Quick tasks, simple questions, API use</li>
+                    <li><strong>Speed:</strong> Very fast responses</li>
+                    <li><strong>Cost:</strong> Most affordable for API users</li>
+                    <li><strong>Quality:</strong> Good for straightforward tasks</li>
+                    <li><strong>Use when:</strong> Simple queries, high-volume API calls</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🆚</span> When to Use Which AI</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>For Filipino Students</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Use Claude when:</strong></p>
+                        <ul>
+                            <li>Writing research papers or thesis</li>
+                            <li>Complex problem solving (Math, Physics)</li>
+                            <li>Coding assignments</li>
+                            <li>Analyzing documents or data</li>
+                        </ul>
+                        <p><strong>Use ChatGPT when:</strong></p>
+                        <ul>
+                            <li>Quick homework help</li>
+                            <li>Brainstorming ideas</li>
+                            <li>Creating presentations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>For Developers</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Use Claude when:</strong></p>
+                        <ul>
+                            <li>Debugging complex code</li>
+                            <li>Writing production code</li>
+                            <li>Code reviews and optimization</li>
+                            <li>Technical documentation</li>
+                        </ul>
+                        <p><strong>Use GitHub Copilot when:</strong></p>
+                        <ul>
+                            <li>In-IDE code completion</li>
+                            <li>Autocomplete while typing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>For Content Creators</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Use Claude when:</strong></p>
+                        <ul>
+                            <li>Long-form content (articles, scripts)</li>
+                            <li>Professional writing</li>
+                            <li>Content strategy and planning</li>
+                        </ul>
+                        <p><strong>Use ChatGPT when:</strong></p>
+                        <ul>
+                            <li>Quick social media captions</li>
+                            <li>Creating images (DALL-E)</li>
+                            <li>Casual content ideas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Many Filipino users use multiple AI tools! Claude for serious work, ChatGPT for casual tasks, Gemini for Google workspace integration.
+            </div>
+        </div>
+
+        <div id="community" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">👥</span> Philippine Claude Community</h2>
+                <p>Connect with other Filipino Claude users and get support:</p>
+            </div>
+
+            <div class="resource-link" onclick="alert('Join Filipino tech communities on Facebook, Discord, or Reddit to connect with other Claude users!')">
+                <div class="resource-icon">💬</div>
+                <div class="resource-content">
+                    <div class="resource-title">Filipino Tech Communities</div>
+                    <div class="resource-desc">Facebook groups, Discord servers for PH users</div>
+                </div>
+            </div>
+
+            <div class="resource-link" onclick="alert('Search r/ClaudeAI on Reddit for global Claude community and tips')">
+                <div class="resource-icon">🌐</div>
+                <div class="resource-content">
+                    <div class="resource-title">Reddit r/ClaudeAI</div>
+                    <div class="resource-desc">Global Claude community, tips and tricks</div>
+                </div>
+            </div>
+
+            <div class="resource-link" onclick="alert('Visit docs.claude.com for official documentation, guides, and best practices')">
+                <div class="resource-icon">📚</div>
+                <div class="resource-content">
+                    <div class="resource-title">Official Documentation</div>
+                    <div class="resource-desc">docs.claude.com - Prompting guides & API docs</div>
+                </div>
+            </div>
+
+            <div class="resource-link" onclick="alert('Check support.claude.com for help articles and contact support')">
+                <div class="resource-icon">🆘</div>
+                <div class="resource-content">
+                    <div class="resource-title">Anthropic Support</div>
+                    <div class="resource-desc">support.claude.com - Official help center</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎓</span> Learning Resources</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Prompt Engineering Guides</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Official Anthropic Resources:</strong></p>
+                        <ul>
+                            <li>Prompt Engineering Overview - docs.claude.com</li>
+                            <li>Best practices for prompting</li>
+                            <li>Examples library</li>
+                        </ul>
+                        <p><strong>What to learn:</strong></p>
+                        <ul>
+                            <li>How to structure clear prompts</li>
+                            <li>Using examples effectively</li>
+                            <li>Chain of thought reasoning</li>
+                            <li>Role-based prompting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>API Development Tutorials</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>For Filipino developers:</strong></p>
+                        <ul>
+                            <li>Getting started with Claude API</li>
+                            <li>Building chatbots for Philippine businesses</li>
+                            <li>Integrating with local payment systems</li>
+                            <li>Cost optimization for PH startups</li>
+                        </ul>
+                        <p><strong>Where to learn:</strong></p>
+                        <ul>
+                            <li>console.anthropic.com - API console</li>
+                            <li>GitHub examples repositories</li>
+                            <li>YouTube tutorials (search "Claude API tutorial")</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Use Case Inspiration</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>See what others are building:</strong></p>
+                        <ul>
+                            <li>Customer service bots for e-commerce</li>
+                            <li>Educational tutoring apps</li>
+                            <li>Document analysis tools</li>
+                            <li>Content generation systems</li>
+                        </ul>
+                        <p><strong>Philippine-specific ideas:</strong></p>
+                        <ul>
+                            <li>Tagalog translation services</li>
+                            <li>BIR tax filing assistants</li>
+                            <li>Jeepney route optimizers</li>
+                            <li>Sari-sari store inventory systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📢</span> Share Your Success Stories</h2>
+                <p style="font-size: 12px;">Using Claude for something amazing? Share with the community!</p>
+                <ul>
+                    <li>Post on social media with #ClaudePH or #ClaudeAI</li>
+                    <li>Write blog posts about your experience</li>
+                    <li>Create YouTube tutorials in Tagalog/English</li>
+                    <li>Help other Filipinos learn AI tools</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🤝</span> Contributing & Feedback</h2>
+                
+                <div class="tip-box">
+                    <strong>📝 Feature Requests:</strong> Use the feedback button in Claude to suggest features for Filipino users (e.g., better Tagalog support, PH-specific tools)
+                </div>
+
+                <p style="font-size: 12px; margin-top: 12px;">Ways to contribute:</p>
+                <ul>
+                    <li><strong>Bug Reports:</strong> Use thumbs down on problematic responses</li>
+                    <li><strong>Feature Ideas:</strong> Submit via feedback button</li>
+                    <li><strong>Quality Feedback:</strong> Rate responses to improve Claude</li>
+                    <li><strong>Spread the Word:</strong> Help fellow Filipinos discover Claude</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎯</span> Meetups & Events</h2>
+                <p style="font-size: 12px;">Look for AI/tech meetups in Metro Manila and major cities:</p>
+                <ul>
+                    <li>Manila AI Meetup groups</li>
+                    <li>Philippine Startup events</li>
+                    <li>University tech clubs (UP, Ateneo, DLSU, UST)</li>
+                    <li>Hackathons featuring AI tools</li>
+                    <li>DevCon Philippines events</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💼</span> Business Opportunities</h2>
+                <p style="font-size: 12px;">Build a career or business with Claude:</p>
+                <ul>
+                    <li><strong>AI Consulting:</strong> Help PH businesses integrate Claude</li>
+                    <li><strong>Content Services:</strong> Offer AI-assisted writing/translation</li>
+                    <li><strong>Development:</strong> Build Claude-powered apps</li>
+                    <li><strong>Training:</strong> Teach others how to use Claude effectively</li>
+                    <li><strong>Process Automation:</strong> Help companies automate with AI</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="offline" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">💾</span> Saving & Accessing Offline</h2>
+                <p>Claude requires internet, but you can save responses for offline use:</p>
+            </div>
+
+            <div class="save-method">
+                <div class="save-method-title">
+                    <span>📋</span> Copy to Clipboard
+                </div>
+                <div class="save-method-steps">
+                    <p><strong>Best for:</strong> Quick notes, short answers</p>
+                    <ol>
+                        <li>Select Claude's response text</li>
+                        <li>Right-click → Copy (or Ctrl+C)</li>
+                        <li>Paste into Notes app, Word, or text file</li>
+                        <li>Access anytime offline</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="save-method">
+                <div class="save-method-title">
+                    <span>📸</span> Screenshot Method
+                </div>
+                <div class="save-method-steps">
+                    <p><strong>Best for:</strong> Formatted content, code with syntax</p>
+                    <ol>
+                        <li>Windows: Win+Shift+S or Snipping Tool</li>
+                        <li>Mac: Cmd+Shift+4</li>
+                        <li>Mobile: Volume Down + Power button</li>
+                        <li>Save to Photos/Gallery</li>
+                        <li>View offline anytime</li>
+                    </ol>
+                    <p style="font-size: 11px; color: #a8a8a8; margin-top: 6px;">💡 Tip: Use screenshot for code blocks to preserve formatting!</p>
+                </div>
+            </div>
+
+            <div class="save-method">
+                <div class="save-method-title">
+                    <span>📄</span> Export to Document
+                </div>
+                <div class="save-method-steps">
+                    <p><strong>Best for:</strong> Long content, reports, articles</p>
+                    <ol>
+                        <li>Copy Claude's response</li>
+                        <li>Open Google Docs or MS Word</li>
+                        <li>Paste and format as needed</li>
+                        <li>Save as .docx or PDF</li>
+                        <li>Access offline (Google Docs offline mode)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="save-method">
+                <div class="save-method-title">
+                    <span>📱</span> Notes App (Mobile)
+                </div>
+                <div class="save-method-steps">
+                    <p><strong>Best for:</strong> Mobile users, quick reference</p>
+                    <ol>
+                        <li>Long-press on Claude's response</li>
+                        <li>Select "Copy"</li>
+                        <li>Open Notes app (iOS) or Keep (Android)</li>
+                        <li>Create new note and paste</li>
+                        <li>Organize with folders/labels</li>
+                        <li>Access offline on phone</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="save-method">
+                <div class="save-method-title">
+                    <span>💻</span> Code Artifacts Export
+                </div>
+                <div class="save-method-steps">
+                    <p><strong>Best for:</strong> Code, HTML, React components</p>
+                    <ol>
+                        <li>Click "Copy code" button on artifact</li>
+                        <li>Open VS Code or text editor</li>
+                        <li>Create new file with proper extension (.html, .py, .js)</li>
+                        <li>Paste code and save</li>
+                        <li>Run locally on your computer</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🗂️</span> Organizing Saved Content</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Google Drive Organization</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Create folder structure:</strong></p>
+                        <ul>
+                            <li>📁 Claude Outputs/
+                                <ul>
+                                    <li>📁 Code Projects/</li>
+                                    <li>📁 Writing & Content/</li>
+                                    <li>📁 Study Notes/</li>
+                                    <li>📁 Business Documents/</li>
+                                    <li>📁 Templates/</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 8px;"><strong>Benefits:</strong></p>
+                        <ul>
+                            <li>Access from any device</li>
+                            <li>Search functionality</li>
+                            <li>Offline mode available (enable in Drive settings)</li>
+                            <li>Share with team if needed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Notion/Obsidian for Power Users</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Create knowledge base:</strong></p>
+                        <ul>
+                            <li>Tag by topic (coding, writing, business)</li>
+                            <li>Link related prompts and responses</li>
+                            <li>Build personal AI prompt library</li>
+                            <li>Track what works best</li>
+                        </ul>
+                        <p style="margin-top: 8px;"><strong>Notion advantage:</strong> Templates, databases, offline sync</p>
+                        <p><strong>Obsidian advantage:</strong> Markdown, local files, full offline</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Simple Text Files</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>For minimal setup:</strong></p>
+                        <ul>
+                            <li>Create folder on Desktop/Documents</li>
+                            <li>Save as .txt files with descriptive names</li>
+                            <li>Example: "2026-01-email-template.txt"</li>
+                            <li>Use date prefix for easy sorting</li>
+                            <li>No internet needed after saving</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📊</span> Exporting Data & Conversations</h2>
+                <p style="font-size: 12px;">While Claude doesn't have bulk export (yet), you can:</p>
+                <ul>
+                    <li><strong>Manual export:</strong> Copy important conversations to documents</li>
+                    <li><strong>Screenshot threads:</strong> Capture full conversation for reference</li>
+                    <li><strong>Request data:</strong> Contact Anthropic for data export (GDPR rights)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🔌</span> Offline Alternatives</h2>
+                <p style="font-size: 12px;">When you need AI without internet:</p>
+                
+                <div class="tip-box">
+                    <strong>⚠️ Note:</strong> These are different from Claude and require setup, but work offline
+                </div>
+
+                <ul>
+                    <li><strong>Ollama:</strong> Run local AI models on your computer (requires good PC)</li>
+                    <li><strong>LM Studio:</strong> Desktop app for local LLMs</li>
+                    <li><strong>Saved templates:</strong> Use Claude online to create templates, save them, fill in offline</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💡</span> Best Practices for PH Users</h2>
+                <ul>
+                    <li><strong>Save during good connection:</strong> When you have stable WiFi, save important responses</li>
+                    <li><strong>Mobile data users:</strong> Complete tasks during free WiFi hours, save everything</li>
+                    <li><strong>Commute prep:</strong> Before leaving, save study materials/work content for offline review</li>
+                    <li><strong>Power users:</strong> Keep a "Claude snippets" folder for reusable prompts and responses</li>
+                    <li><strong>Students:</strong> Save study guides, summaries before exams in case of internet issues</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>🇵🇭 Philippine Reality:</strong> Internet can be unreliable. Save everything important! Don't rely on conversation history alone.
+            </div>
+        </div>
+
+        <div id="features" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">✨</span> Key Features</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">🌐</div>
+                        <div class="feature-name">Web Search</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🔬</div>
+                        <div class="feature-name">Deep Research</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">💻</div>
+                        <div class="feature-name">Code Execution</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-name">Artifacts</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">💾</div>
+                        <div class="feature-name">Memory</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-name">Style Settings</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🌐</span> Web Search</h2>
+                <p>Claude can search the web for current information beyond its knowledge cutoff (January 2025).</p>
+                <div class="code-block">Example: "What's the latest news about Philippine tech startups?"</div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📊</span> Artifacts</h2>
+                <p>Create interactive content like:</p>
+                <ul>
+                    <li>Code snippets and applications</li>
+                    <li>Documents and reports</li>
+                    <li>HTML websites and visualizations</li>
+                    <li>React components</li>
+                    <li>SVG graphics and diagrams</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💾</span> Memory & History</h2>
+                <p>Claude can remember preferences and search past conversations. Enable in Settings to personalize your experience.</p>
+            </div>
+
+            <div class="tip-box">
+                <strong>⚙️ Settings Tip:</strong> Customize features in Settings. Turn on/off web search, artifacts, memory, and more!
+            </div>
+        </div>
+
+        <div id="tips" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">💡</span> Best Practices</h2>
+                <p><strong>Be Clear and Detailed:</strong></p>
+                <div class="code-block">Good: "Write a Python function to calculate factorial with error handling"
+Bad: "Python code"</div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">📝</span> Effective Prompting</h2>
+                <ul>
+                    <li><strong>Provide Context:</strong> Share relevant background information</li>
+                    <li><strong>Use Examples:</strong> Show what you want with samples</li>
+                    <li><strong>Specify Format:</strong> Tell Claude how to structure responses</li>
+                    <li><strong>Ask Follow-ups:</strong> Refine answers through conversation</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎯</span> Common Use Cases</h2>
+                <ul>
+                    <li><strong>Students:</strong> Research assistance, essay writing, exam prep</li>
+                    <li><strong>Developers:</strong> Code debugging, documentation, architecture design</li>
+                    <li><strong>Professionals:</strong> Email drafting, data analysis, presentations</li>
+                    <li><strong>Creatives:</strong> Content ideas, storytelling, editing</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>📚 Learn More:</strong> Visit docs.claude.com for comprehensive prompting guides and documentation.
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">👎</span> Feedback Matters</h2>
+                <p>Not satisfied with a response? Use the thumbs down button below Claude's messages to provide feedback to Anthropic.</p>
+            </div>
+        </div>
+
+        <div id="tagalog" class="tab-content">
+            <div class="card">
+                <h2><span class="emoji">🇵🇭</span> Gabay sa Tagalog</h2>
+                <p>Maaari kang makipag-usap kay Claude sa Tagalog o anumang wika. Si Claude ay nakakaintindi at nakakasagot sa maraming wika.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💬</span> Mga Halimbawa ng Tanong</h2>
+                <div class="code-block">"Tulungan mo ako sa pagsulat ng business proposal sa Tagalog"</div>
+                <div class="code-block">"Ano ang pinakabagong balita tungkol sa ekonomiya ng Pilipinas?"</div>
+                <div class="code-block">"Gumawa ng recipe para sa adobo gamit ang chicken"</div>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🎓</span> Para sa Mag-aaral</h2>
+                <ul>
+                    <li>Tulong sa research at homework</li>
+                    <li>Pagsasalin ng dokumento</li>
+                    <li>Paliwanag ng kumplikadong konsepto</li>
+                    <li>Paghahanda sa exams</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💼</span> Para sa Propesyonal</h2>
+                <ul>
+                    <li>Pagsulat ng emails at reports</li>
+                    <li>Data analysis at visualization</li>
+                    <li>Presentation creation</li>
+                    <li>Business planning</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>🌟 Tip:</strong> Huwag mag-atubiling magtanong ng follow-up questions para sa mas detalyadong sagot!
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">⚙️</span> Mga Setting</h2>
+                <p>Pupunta sa Settings para i-customize ang iyong experience:</p>
+                <ul>
+                    <li>User Preferences - itakda ang gusto mong tone at format</li>
+                    <li>Style Feature - i-customize ang paraan ng pagsulat ni Claude</li>
+                    <li>Memory - hayaang matandaan ni Claude ang preferences mo</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Claude.ai Guide for Filipino Users • 2026 Edition</p>
+            <p>Made with Claude Sonnet 4.5 • Not affiliated with Anthropic</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function copyText(button, text) {
+            const textToCopy = text || button.parentElement.textContent.replace('Copy', '').trim();
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.style.background = 'rgba(81, 207, 102, 0.3)';
+                    button.style.color = '#51cf66';
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = 'rgba(206, 147, 103, 0.3)';
+                        button.style.color = '#ce9367';
+                    }, 2000);
+                });
+            } else {
+                alert('Prompt copied to clipboard:\n\n' + textToCopy);
+            }
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            // Close all other accordions in the same container
+            const allContents = header.parentElement.parentElement.querySelectorAll('.accordion-content');
+            const allIcons = header.parentElement.parentElement.querySelectorAll('.accordion-icon');
+            
+            allContents.forEach((item, index) => {
+                if (item !== content) {
+                    item.classList.remove('open');
+                    allIcons[index].classList.remove('open');
+                }
+            });
+            
+            // Toggle current accordion
+            content.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
